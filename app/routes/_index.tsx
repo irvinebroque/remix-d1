@@ -10,8 +10,7 @@ export const loader: LoaderFunction = async ({ context, params }) => {
   let env = context.cloudflare.env as Env;
   console.log(context);
   if (!env) { throw new Error("Env is missing!") }
-
-  let { results } = await env.DB.prepare("SELECT * FROM users LIMIT 5").all();
+  let { results } = await env.DB.prepare("SELECT * FROM customers LIMIT 5").all();
   return json(results);
 };
 
