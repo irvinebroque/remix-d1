@@ -3,6 +3,7 @@
 - 📖 [Remix docs](https://remix.run/docs)
 - 📖 [Remix Cloudflare docs](https://remix.run/guides/vite#cloudflare)
 
+Preview should fail (missing schema update), prod should work (has db with schema update) if I'm right
 
 ## Development
 
