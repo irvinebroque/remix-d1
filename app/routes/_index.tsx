@@ -2,7 +2,7 @@ import { Ai } from "@cloudflare/workers-types";
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-const fs = require('fs');
+import fs from 'fs';
 
 interface Env {
   AI: Ai;
