@@ -1,11 +1,10 @@
-import { Ai } from "@cloudflare/workers-types";
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
 import fs from 'fs';
 
 interface Env {
-  AI: Ai;
+  DB: D1Database;
 }
 
 export const loader: LoaderFunction = async ({ context, params }) => {
@@ -13,10 +12,8 @@ export const loader: LoaderFunction = async ({ context, params }) => {
   let env = context.cloudflare.env as Env;
   console.log(context);
   if (!env) { throw new Error("Env is missing!") }
-  const response = await env.AI.run('@cf/meta/llama-3-8b-instruct', {
-    prompt: "What is the origin of the phrase Hello, World"
-  });
-  return json(response);
+  let { results } = await env.DB.prepare("SELECT * FROM customers LIMIT 5").all();
+  return json(results);
 };
 
 export default function Index() {

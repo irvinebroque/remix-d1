@@ -1,6 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "remix-d1"
-compatibility_date = "2024-07-10"
+compatibility_date = "2024-06-10"
 pages_build_output_dir = "./build/client"
 compatibility_flags = ["nodejs_compat"]
 
@@ -8,9 +8,6 @@ compatibility_flags = ["nodejs_compat"]
 binding = "DB"
 database_name = "remix-d1-local"
 database_id = "d96d3905-cc50-4bec-bca2-523925b92c88"
-
-[ai]
-binding = "AI"
 
 [[env.preview.d1_databases]]
 binding = "DB"
