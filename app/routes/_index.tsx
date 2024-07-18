@@ -2,12 +2,14 @@ import { Ai } from "@cloudflare/workers-types";
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
+const fs = require('fs');
 
 interface Env {
   AI: Ai;
 }
 
 export const loader: LoaderFunction = async ({ context, params }) => {
+  fs.readFile('foo');
   let env = context.cloudflare.env as Env;
   console.log(context);
   if (!env) { throw new Error("Env is missing!") }
