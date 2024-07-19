@@ -1,7 +1,7 @@
 import type { LoaderFunction } from "@remix-run/cloudflare";
 import { json } from "@remix-run/cloudflare";
 import { useLoaderData } from "@remix-run/react";
-import fs from 'fs';
+import fs from 'node:fs';
 
 interface Env {
   DB: D1Database;

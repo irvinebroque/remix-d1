@@ -8,6 +8,9 @@ import type { AppLoadContext, EntryContext } from "@remix-run/cloudflare";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToReadableStream } from "react-dom/server";
+import { env, nodeless, cloudflare } from "unenv";
+
+const envConfig = env(nodeless, cloudflare, {});
 
 export default async function handleRequest(
   request: Request,
